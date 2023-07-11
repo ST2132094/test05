@@ -59,3 +59,32 @@
         var directionalLight2 = new THREE.DirectionalLight(0xffffff);
     directionalLight2.position.set(-1, 1, 1);
     // シーンに追加
+    scene.add(directionalLight2);
+
+      // 初回実行
+      var update = function() {
+      requestAnimationFrame(update);
+  
+      // 回転させる
+      torus.rotation.x +=0.01;
+      torus.rotation.y +=0.01;
+      torus.position.z +=0.01;
+      sphere1.rotation.x -= 0.01;
+      sphere1.rotation.y -= 0.01;
+      sphere1.position.z -=0.03;
+      sphere2.rotation.x += 0.01;
+      sphere2.rotation.y += 0.01;
+      sphere2.position.z -=0.03;
+      cylinder.rotation.x +=0.01;
+      cylinder.rotation.y +=0.01;
+      cylinder.position.z +=0.01;
+      
+  
+      renderer.render(scene, camera);
+    };
+    update();
+  }
+  window.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
