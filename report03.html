@@ -18,9 +18,6 @@
         var renderer = new THREE.WebGLRenderer();
         document.body.appendChild(renderer.domElement);
         renderer.setSize(width, height);
-        // 背景の色を設定
-        renderer.setClearColor(0xffffdd);
-
 
         // シーンを作成
         const scene = new THREE.Scene();
@@ -50,13 +47,31 @@
         const axisHelper = new THREE.AxisHelper(2); //軸の長さ　X：赤、Y：緑、z：青
         scene.add(axisHelper);
 
-        // 箱を作成
-        var geometry = new THREE.BoxGeometry(1, 1, 1);
-        var material = new THREE.MeshPhongMaterial({ color: 0x0000ff });
-        var box = new THREE.Mesh(geometry, material);
-        box.position.set(0,0,0); //位置を指定
-        scene.add(box);   // シーンに追加
+        // テクスチャー読み込み
+        var textureLoader = new THREE.TextureLoader();  
+        var texture = textureLoader.load("stone.jpg");
+        var mat = new THREE.MeshPhongMaterial();
+        mat.map = texture;
+  
+        // バンプマップ読み込み
+        var bump = textureLoader.load("stone-bump.jpg");
+        mat.bumpMap = bump;
+        mat.bumpscale = 0.2;
 
+        //ジオメトリ作成（球）
+       const geometry = new THREE.SphereGeometry(300, 30, 30);
+ 
+        // 画像を読み込む
+        const texture = new THREE.TextureLoader().load('full-moon-gcaa80db0c_1280');
+        //マテリアルにテクスチャ貼り付け
+        const material = new THREE.MeshStandardMaterial({
+            map: texture
+        });
+        // メッシュを作成
+        const mesh = new THREE.Mesh(geometry, material);
+        // 3D空間にメッシュを追加
+        scene.add(mesh);
+        
         update();
 
         // 毎フレーム時に実行されるループイベントです
@@ -73,3 +88,4 @@
       }
     </script>
 </body>
+</html>
