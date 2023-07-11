@@ -26,13 +26,29 @@
       //カメラを作成
       var camera = new THREE.PerspectiveCamera(45,800/600,1,1000);
 
- 
+  //ドーナッツ
+  var torusGeometry = new THREE.TorusGeometry( 7, 0.5, 25, 25 ); 
+  var torusMaterial = new THREE. MeshToonMaterial( { color: 0xd77b00 } );
+  var torus = new THREE.Mesh( torusGeometry, torusMaterial );
+  torus.position.set( 0.5, 0, -15);
+  scene.add( torus );
+
+  //球
+  var sphereGeometry = new THREE.SphereGeometry( 0.7, 32, 32 ); 
+  var sphereMaterial = new THREE. MeshPhongMaterial( {color: 0xff0000,wireframe: true} );
+  var sphere1 = new THREE.Mesh( sphereGeometry, sphereMaterial );
+  var sphere2 = new THREE.Mesh( sphereGeometry, sphereMaterial );
+  sphere1.position.set( 1.5, 0, -6 );
+  sphere2.position.set( -1.5, 0, -6 );
+  scene.add( sphere1 );
+  scene.add( sphere2 );
+
   //５角柱
-  var cylinderGeometry = new THREE.SphereGeometry( 0.3, 0.3, 1, 5 );
-  var cylinderMaterial = new THREE.MeshPhongMaterial( {color: 0xffff00} );
-  var cylinder = new THREE.Mesh( SphereGeometry, SphereMaterial );
+  var cylinderGeometry = new THREE.CylinderGeometry( 0.3, 0.3, 1, 5 );
+  var cylinderMaterial = new THREE.MeshPhongMaterial( {color: 0xffff00,wireframe: true} );
+  var cylinder = new THREE.Mesh( cylinderGeometry, cylinderMaterial );
   cylinder.position.set( 0, 0, -7 );
-  scene.add( Sphere );
+  scene.add( cylinder );
 
     // 平行光源1
     var directionalLight1 = new THREE.DirectionalLight(0xffffff);
