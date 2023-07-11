@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>2132094_Report1</title>
+  <title>2132094_Report3</title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js"></script>
 </head>
@@ -28,7 +28,7 @@
 
   //球
   var sphereGeometry = new THREE.SphereGeometry( 0.7, 32, 32 ); 
-  var sphereMaterial = new THREE. MeshPhongMaterial( {color: 0xff0000,wireframe: true} );
+  var sphereMaterial = new THREE. MeshPhongMaterial( {color: 0xff0000} );
   var sphere1 = new THREE.Mesh( sphereGeometry, sphereMaterial );
   sphere1.position.set( 0, 0, -7 );
   scene.add( sphere1 );
