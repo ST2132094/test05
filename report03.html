@@ -27,15 +27,15 @@
       var camera = new THREE.PerspectiveCamera(45,800/600,1,1000);
 
   //テクスチャー読み込み
-  var textureLoader = new THREE.TexyureLoader();
-  var texture = textureLoader.load("full-moon-gcaa80db0c_1280.jpg");
-  var mat = new THREE.MeshPhongMaterial();
-  mat.map = texture;
+  //var textureLoader = new THREE.TexyureLoader();
+  //var texture = textureLoader.load("full-moon-gcaa80db0c_1280.jpg");
+  //var mat = new THREE.MeshPhongMaterial();
+  //mat.map = texture;
   //球
   var sphereGeometry = new THREE.SphereGeometry( 0.7, 32, 32 ); 
-  //var sphereMaterial = new THREE. MeshPhongMaterial( {color: 0xff0000} );
-  //var sphere1 = new THREE.Mesh( sphereGeometry, sphereMaterial );
-  var sphere = new THREE.Mesh(geometory, mat);
+  var sphereMaterial = new THREE. MeshPhongMaterial( {color: 0xff0000} );
+  var sphere1 = new THREE.Mesh( sphereGeometry, sphereMaterial );
+  //var sphere = new THREE.Mesh(geometory, mat);
   sphere.position.set( 0, 0, -7 );
   scene.add( sphere );
 
